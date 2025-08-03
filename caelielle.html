@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caelielle - Original Character Gallery</title>
+    <meta name="description" content="Explore Caelielle's character gallery featuring SFW, NSFW, and reference artwork.">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body data-character="caelielle">
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">OC Gallery</a>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./thea.html">Thea</a></li>
+                <li><a href="./darla.html">Darla</a></li>
+                <li><a href="./caelielle.html">Caelielle</a></li>
+                <li><a href="./misc.html">Misc</a></li>
+                <li><a href="./queue.html">Commission Queue</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Caelielle</h1>
+            <p>Celestial Guardian & Bridge Between Worlds</p>
+        </section>
+
+        <section class="bio-section">
+            <h2>Character Bio</h2>
+            <p>Caelielle is a celestial being who exists in the liminal space between the mortal realm and the divine spheres. Born from the convergence of starlight and mortal dreams, she serves as both guardian and guide for those who find themselves lost between worlds. Her ethereal beauty is matched only by her profound wisdom and the gentle strength she brings to those in need.</p>
+            
+            <p>As a bridge between realms, Caelielle possesses the unique ability to perceive and interact with multiple planes of existence simultaneously. This grants her insights into the interconnected nature of all things, making her an invaluable ally to heroes who face cosmic threats. Her powers manifest as pure light and celestial energy, capable of both healing the gravest wounds and standing against the darkest evils.</p>
+            
+            <p>Despite her divine nature, Caelielle has chosen to maintain close connections with mortal beings, finding beauty in their ephemeral existence and passionate emotions. She believes that the intersection of divine wisdom and mortal experience creates something greater than either could achieve alone. Her artwork showcases both her otherworldly grace and the deeply personal connections she forms with those she encounters on her eternal journey.</p>
+        </section>
+
+        <section class="gallery-section">
+            <div class="nsfw-controls">
+                <label for="nsfw-toggle">Show NSFW Content:</label>
+                <label class="nsfw-toggle">
+                    <input type="checkbox" id="nsfw-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span style="color: rgba(255, 255, 255, 0.8);">NSFW images are blurred by default</span>
+            </div>
+
+            <div class="gallery-tabs">
+                <button class="tab-button active" data-section="sfw">SFW Gallery</button>
+                <button class="tab-button" data-section="nsfw">NSFW Gallery</button>
+                <button class="tab-button" data-section="ref">References</button>
+            </div>
+
+            <div id="gallery-container">
+                <div class="loading">Loading gallery...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Original Characters Gallery. All artwork is property of their respective artists and commissioners.</p>
+    </footer>
+
+    <script src="./scripts/gallery.js"></script>
+</body>
+</html>

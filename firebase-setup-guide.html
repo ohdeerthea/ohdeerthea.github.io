@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Setup Helper</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 { color: #667eea; }
+        h2 { color: #333; margin-top: 2rem; }
+        pre {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #667eea;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Firebase Setup Guide</h1>
+        <p>Follow these steps to set up Firebase for your commission queue functionality. If you skip this setup, the site will work with demo data.</p>
+
+        <div class="step">
+            <h2>Step 1: Create Firebase Project</h2>
+            <ol>
+                <li>Go to <a href="https://console.firebase.google.com/" target="_blank">Firebase Console</a></li>
+                <li>Click "Add project" or "Create a project"</li>
+                <li>Enter your project name (e.g., "oc-gallery")</li>
+                <li>Follow the setup wizard (you can disable Analytics if not needed)</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Enable Firestore Database</h2>
+            <ol>
+                <li>In your Firebase project, click "Firestore Database" in the left sidebar</li>
+                <li>Click "Create database"</li>
+                <li>Choose "Start in test mode" for now (you can secure it later)</li>
+                <li>Select a location close to your users</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>Step 3: Get Firebase Configuration</h2>
+            <ol>
+                <li>In Firebase Console, click the gear icon → "Project settings"</li>
+                <li>Scroll down to "Your apps" section</li>
+                <li>Click the web app icon "&lt;/&gt;" to add a web app</li>
+                <li>Enter an app nickname (e.g., "OC Gallery Web")</li>
+                <li>Copy the configuration object that appears</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>Step 4: Update Configuration File</h2>
+            <p>Open <code>scripts/firebase-config.js</code> and replace the placeholder config with your actual Firebase configuration:</p>
+            <pre>const firebaseConfig = {
+  apiKey: "your-actual-api-key-here",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-actual-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "your-actual-app-id"
+};</pre>
+        </div>
+
+        <div class="step">
+            <h2>Step 5: Set Up Firestore Security Rules</h2>
+            <p>In Firebase Console, go to Firestore Database → Rules and update them:</p>
+            <pre>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to commissions for everyone
+    match /commissions/{document} {
+      allow read: if true;
+      allow write: if false; // Only allow writes through admin interface
+    }
+  }
+}</pre>
+            <div class="warning">
+                <strong>Note:</strong> These rules allow public read access but no write access. You'll manage data through the admin interface only.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>Step 6: Test Your Setup</h2>
+            <ol>
+                <li>Save your changes to <code>scripts/firebase-config.js</code></li>
+                <li>Open your website and go to the admin panel (/admin.html)</li>
+                <li>Log in with password: <strong>3272</strong></li>
+                <li>Try adding a test commission entry</li>
+                <li>Check if it appears on the commission queue page (/queue.html)</li>
+            </ol>
+        </div>
+
+        <div class="step success">
+            <h2>✅ Optional: Secure Your Setup</h2>
+            <p>For additional security, consider:</p>
+            <ul>
+                <li>Adding your domain to Firebase authorized domains</li>
+                <li>Implementing more restrictive Firestore rules</li>
+                <li>Using environment variables for sensitive config</li>
+                <li>Adding the firebase-config.js file to .gitignore if needed</li>
+            </ul>
+        </div>
+
+        <div class="step warning">
+            <h2>⚠️ Important Notes</h2>
+            <ul>
+                <li>The admin password (3272) is stored in client-side JavaScript and is NOT secure for sensitive data</li>
+                <li>This setup is intended for personal use and small-scale projects</li>
+                <li>For production use, implement proper authentication and authorization</li>
+                <li>The site works with demo data if Firebase is not configured</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>🎨 Next Steps</h2>
+            <ol>
+                <li>Add your character artwork to the <code>/images/</code> folder</li>
+                <li>Update the JSON files in <code>/data/</code> with your image information</li>
+                <li>Use the admin panel's JSON helper to generate entries easily</li>
+                <li>Customize the CSS colors and branding to match your style</li>
+                <li>Test on mobile devices to ensure responsive design works</li>
+            </ol>
+        </div>
+
+        <p><strong>Need help?</strong> Check the README.md file for detailed instructions and troubleshooting tips!</p>
+    </div>
+</body>
+</html>

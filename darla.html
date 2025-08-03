@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darla - Original Character Gallery</title>
+    <meta name="description" content="Explore Darla's character gallery featuring SFW, NSFW, and reference artwork.">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body data-character="darla">
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">OC Gallery</a>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./thea.html">Thea</a></li>
+                <li><a href="./darla.html">Darla</a></li>
+                <li><a href="./caelielle.html">Caelielle</a></li>
+                <li><a href="./misc.html">Misc</a></li>
+                <li><a href="./queue.html">Commission Queue</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Darla</h1>
+            <p>Scholar of Ancient Arts & Keeper of Secrets</p>
+        </section>
+
+        <section class="bio-section">
+            <h2>Character Bio</h2>
+            <p>Darla is an enigmatic scholar whose pursuit of ancient knowledge has granted her insights that span centuries. Originally a promising student at the prestigious Academy of Ethereal Arts, she delved too deeply into forbidden texts and discovered truths that the institution preferred to keep buried. This led to her exile, but also to her transformation into one of the most knowledgeable practitioners of ancient magical arts in the known world.</p>
+            
+            <p>Her research focuses on the intersection of historical events and magical phenomena, particularly the lost civilizations that once wielded powers beyond modern comprehension. Darla has spent decades traveling to remote ruins, deciphering ancient scripts, and reconstructing lost rituals. Her extensive library contains tomes that most scholars believe to be myths, and her personal grimoire is a masterwork of compiled knowledge from dozens of extinct magical traditions.</p>
+            
+            <p>Despite her scholarly demeanor, Darla possesses a sharp wit and isn't afraid to use her considerable magical abilities when threatened. She values knowledge above all else, but has learned to be selective about what secrets she shares. Her artwork captures both her intellectual pursuits and the more personal, intimate moments that reveal the woman behind the scholar's robes.</p>
+        </section>
+
+        <section class="gallery-section">
+            <div class="nsfw-controls">
+                <label for="nsfw-toggle">Show NSFW Content:</label>
+                <label class="nsfw-toggle">
+                    <input type="checkbox" id="nsfw-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span style="color: rgba(255, 255, 255, 0.8);">NSFW images are blurred by default</span>
+            </div>
+
+            <div class="gallery-tabs">
+                <button class="tab-button active" data-section="sfw">SFW Gallery</button>
+                <button class="tab-button" data-section="nsfw">NSFW Gallery</button>
+                <button class="tab-button" data-section="ref">References</button>
+            </div>
+
+            <div id="gallery-container">
+                <div class="loading">Loading gallery...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Original Characters Gallery. All artwork is property of their respective artists and commissioners.</p>
+    </footer>
+
+    <script src="./scripts/gallery.js"></script>
+</body>
+</html>

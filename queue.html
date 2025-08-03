@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission Queue - Original Character Gallery</title>
+    <meta name="description" content="View the current commission queue with real-time updates on artwork progress and completion status.">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">OC Gallery</a>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./thea.html">Thea</a></li>
+                <li><a href="./darla.html">Darla</a></li>
+                <li><a href="./caelielle.html">Caelielle</a></li>
+                <li><a href="./misc.html">Misc</a></li>
+                <li><a href="./queue.html">Commission Queue</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Commission Queue</h1>
+            <p>Track current and upcoming commissioned artwork</p>
+        </section>
+
+        <section class="bio-section">
+            <h2>About the Commission Queue</h2>
+            <p>This page displays all current and upcoming commissions in real-time. You can see the progress of each piece, estimated completion dates, and details about the artists and artwork types. The queue is updated automatically as new commissions are added and existing ones progress through different stages.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                <div style="text-align: center;">
+                    <div class="queue-tag status-planning" style="display: inline-block; margin-bottom: 0.5rem;">📋 Planning</div>
+                    <p style="font-size: 0.9rem; color: #666;">Commission details being finalized</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="queue-tag status-in-progress" style="display: inline-block; margin-bottom: 0.5rem;">🎨 In Progress</div>
+                    <p style="font-size: 0.9rem; color: #666;">Artist is actively working on the piece</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="queue-tag status-complete" style="display: inline-block; margin-bottom: 0.5rem;">✅ Complete</div>
+                    <p style="font-size: 0.9rem; color: #666;">Finished artwork ready for delivery</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="queue-tag status-on-hold" style="display: inline-block; margin-bottom: 0.5rem;">⏸️ On Hold</div>
+                    <p style="font-size: 0.9rem; color: #666;">Commission temporarily paused</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="queue-section">
+            <div id="queue-container">
+                <div class="loading">Loading commission queue...</div>
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <h2>Commission Information</h2>
+            <p>Interested in commissioning artwork? Here's some information about the commission process:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Types Available:</strong> Bust/Portrait, Half Body, Full Body, Reference Sheets, Multi-Character pieces</li>
+                <li><strong>Timeframes:</strong> Vary by artist and complexity, typically 2-8 weeks</li>
+                <li><strong>Updates:</strong> This queue is updated in real-time as progress is made</li>
+                <li><strong>Artists:</strong> Working with various talented artists for different styles and specialties</li>
+            </ul>
+            <p>Commission slots and availability vary by artist and current workload. Check back regularly for updates!</p>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Original Characters Gallery. All artwork is property of their respective artists and commissioners.</p>
+    </footer>
+
+    <script type="module" src="./scripts/firebase-config.js"></script>
+    <script src="./scripts/gallery.js"></script>
+    <script>
+        // Initialize queue display when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for queue manager to be initialized
+            const checkQueue = () => {
+                if (window.queueManager) {
+                    window.queueManager.addListener((queue) => {
+                        window.queueManager.renderPublicQueue('queue-container');
+                    });
+                    window.queueManager.renderPublicQueue('queue-container');
+                } else {
+                    setTimeout(checkQueue, 100);
+                }
+            };
+            checkQueue();
+        });
+    </script>
+</body>
+</html>

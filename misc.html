@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miscellaneous Characters - Original Character Gallery</title>
+    <meta name="description" content="Explore miscellaneous original characters gallery featuring SFW, NSFW, and reference artwork.">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body data-character="misc">
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">OC Gallery</a>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./thea.html">Thea</a></li>
+                <li><a href="./darla.html">Darla</a></li>
+                <li><a href="./caelielle.html">Caelielle</a></li>
+                <li><a href="./misc.html">Misc</a></li>
+                <li><a href="./queue.html">Commission Queue</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Miscellaneous Characters</h1>
+            <p>A Collection of Diverse Original Characters</p>
+        </section>
+
+        <section class="bio-section">
+            <h2>About This Collection</h2>
+            <p>This gallery features a diverse collection of original characters that span various genres, settings, and artistic explorations. From one-shot character designs to experimental concepts, this section showcases the breadth and creativity of character development beyond the main trio.</p>
+            
+            <p>You'll find characters from different universes and timelines here - cyberpunk hackers, medieval knights, modern-day supernatural investigators, space explorers, and fantasy creatures. Each character represents a unique story possibility and artistic challenge, exploring different themes, aesthetics, and narrative potential.</p>
+            
+            <p>Some characters featured here may graduate to having their own dedicated galleries if they develop into larger stories or commission series. This collection serves as both a showcase of artistic variety and a testing ground for new character concepts and visual styles.</p>
+        </section>
+
+        <section class="gallery-section">
+            <div class="nsfw-controls">
+                <label for="nsfw-toggle">Show NSFW Content:</label>
+                <label class="nsfw-toggle">
+                    <input type="checkbox" id="nsfw-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span style="color: rgba(255, 255, 255, 0.8);">NSFW images are blurred by default</span>
+            </div>
+
+            <div class="gallery-tabs">
+                <button class="tab-button active" data-section="sfw">SFW Gallery</button>
+                <button class="tab-button" data-section="nsfw">NSFW Gallery</button>
+                <button class="tab-button" data-section="ref">References</button>
+            </div>
+
+            <div id="gallery-container">
+                <div class="loading">Loading gallery...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Original Characters Gallery. All artwork is property of their respective artists and commissioners.</p>
+    </footer>
+
+    <script src="./scripts/gallery.js"></script>
+</body>
+</html>
