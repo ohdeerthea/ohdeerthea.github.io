@@ -12,9 +12,10 @@ body {
     background: linear-gradient(135deg, #5a7c65 0%, #8fbc8f 50%, #a8d3a8 100%);
     min-height: 100vh;
     position: relative;
+    text-align: center;
 }
 
-/* Add subtle forest pattern overlay */
+/* Add subtle forest pattern overlay with hoofprints */
 body::before {
     content: '';
     position: fixed;
@@ -24,8 +25,9 @@ body::before {
     height: 100%;
     background-image: 
         radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 2px, transparent 2px),
-        radial-gradient(circle at 75% 75%, rgba(34, 139, 34, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px, 30px 30px;
+        radial-gradient(circle at 75% 75%, rgba(34, 139, 34, 0.1) 1px, transparent 1px),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="20" y="25" text-anchor="middle" font-size="16" opacity="0.05">🦌</text></svg>');
+    background-size: 50px 50px, 30px 30px, 80px 80px;
     pointer-events: none;
     z-index: -1;
 }
@@ -39,6 +41,7 @@ body::before {
 /* Header and Navigation */
 header {
     background: rgba(139, 115, 85, 0.95);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%238b7355" opacity="0.1"/><path d="M0 0h20v20H0zM20 20h20v20H20zM40 40h20v20H40z" fill="%23654321" opacity="0.1"/></svg>');
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     position: sticky;
@@ -81,6 +84,61 @@ nav {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(139, 115, 85, 0.98);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 8px;
+    min-width: 150px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #f5deb3 !important;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(139, 69, 19, 0.3);
+    color: #daa520 !important;
+}
+
 /* Mobile Navigation */
 .mobile-menu {
     display: none;
@@ -112,6 +170,22 @@ nav {
 
     .mobile-menu {
         display: block;
+    }
+
+    /* Mobile dropdown styles */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: rgba(139, 69, 19, 0.3);
+        margin: 0.5rem 0 0 1rem;
+        box-shadow: none;
+        border: 1px solid rgba(139, 69, 19, 0.3);
+    }
+
+    .dropdown-toggle::after {
+        content: ' ▼';
     }
 }
 
@@ -169,12 +243,12 @@ main {
 
 /* Add subtle hoof print decoration */
 .character-card::before {
-    content: '🐾';
+    content: '🦌';
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 1.2rem;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .character-card:hover {
@@ -571,6 +645,78 @@ footer {
     margin-bottom: 1rem;
 }
 
+/* Social Links Styles */
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-card {
+    background: rgba(245, 222, 179, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid rgba(139, 69, 19, 0.2);
+    text-align: center;
+    display: block;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(139, 69, 19, 0.4);
+}
+
+.social-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: #8b4513;
+    font-family: 'Georgia', serif;
+}
+
+.social-card p {
+    color: #2d4a3e;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.social-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.social-url {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.discord-card {
+    cursor: default;
+}
+
+.copy-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background: #5a6fd8;
+}
+
 .bio-section a {
     color: #5a7c65;
     text-decoration: none;
@@ -612,6 +758,195 @@ footer {
     
     .admin-container {
         padding: 1rem;
+    }
+}
+
+/* Pride Flag Styles */
+.pride-flags {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.flag {
+    width: 150px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stripe {
+    height: 20%;
+    width: 100%;
+}
+
+/* Trans Pride Flag Colors */
+.trans-blue { background-color: #5BCEFA; }
+.trans-pink { background-color: #F5A9B8; }
+.trans-white { background-color: #FFFFFF; }
+
+/* Aegosexual Pride Flag Colors */
+.aego-black { background-color: #000000; }
+.aego-gray { background-color: #A3A3A3; }
+.aego-white { background-color: #FFFFFF; }
+.aego-green { background-color: #78D700; }
+
+/* Character Bio Styling */
+.character-bio p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #2d4a3e;
+}
+
+.character-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* Subtle Trans Pride Theming */
+.hero h1 {
+    background: linear-gradient(45deg, #5BCEFA 0%, #F5A9B8 25%, #FFFFFF 50%, #F5A9B8 75%, #5BCEFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none !important;
+}
+
+/* Social Links Styling */
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-card {
+    background: rgba(245, 222, 179, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(139, 69, 19, 0.2);
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(139, 69, 19, 0.4);
+}
+
+.social-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.social-card h3 {
+    color: #8b4513;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+}
+
+.social-card p {
+    color: #2d4a3e;
+    margin-bottom: 0.5rem;
+}
+
+.social-url {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.discord-card {
+    background: rgba(114, 137, 218, 0.1);
+}
+
+.copy-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background: #5a67d8;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(245, 222, 179, 0.98);
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+.notification-success {
+    border-color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    color: #155724;
+}
+
+.notification-error {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+    color: #721c24;
+}
+
+.notification-info {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    color: #2d4a3e;
+}
+
+.notification button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: inherit;
+    opacity: 0.7;
+}
+
+.notification button:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 

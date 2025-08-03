@@ -13,12 +13,23 @@
             <a href="./index.html" class="logo">🦌 OhDeerThea</a>
             <ul class="nav-links">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./thea.html">Thea</a></li>
-                <li><a href="./darla.html">Darla</a></li>
-                <li><a href="./caelielle.html">Caelielle</a></li>
-                <li><a href="./misc.html">Misc</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Characters</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./thea.html">Thea</a></li>
+                        <li><a href="./darla.html">Darla</a></li>
+                        <li><a href="./caelielle.html">Caelielle</a></li>
+                        <li><a href="./misc.html">Misc</a></li>
+                    </ul>
+                </li>
                 <li><a href="./queue.html">Commission Queue</a></li>
-                <li><a href="./creator.html">About Me</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./creator.html">Creator</a></li>
+                        <li><a href="./socials.html">Socials</a></li>
+                    </ul>
+                </li>
                 <li><a href="./admin.html">Admin</a></li>
             </ul>
             <button class="mobile-menu">☰</button>
@@ -32,9 +43,6 @@
         </section>
 
         <section class="bio-section">
-            <h2>About the Commission Queue</h2>
-            <p>This page displays all current and upcoming commissions in real-time. You can see the progress of each piece, estimated completion dates, and details about the artists and artwork types. The queue is updated automatically as new commissions are added and existing ones progress through different stages.</p>
-            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
                 <div style="text-align: center;">
                     <div class="queue-tag status-planning" style="display: inline-block; margin-bottom: 0.5rem;">📋 Planning</div>

@@ -1,11 +1,103 @@
 ﻿{
     "sfw":  [
-
+                {
+                    "title":  "Arihalfbodycomm1 Bymoonat",
+                    "desc":  "Arihalfbodycomm1 Bymoonat artwork",
+                    "src":  "./images/caelielle/sfw/arihalfbodycomm1_bymoonat.png"
+                },
+                {
+                    "title":  "Bakingmuffins Bymoonat Fullsize",
+                    "desc":  "Bakingmuffins Bymoonat Fullsize artwork",
+                    "src":  "./images/caelielle/sfw/bakingmuffins_bymoonat_fullsize.png"
+                },
+                {
+                    "title":  "Celestine 1",
+                    "desc":  "Celestine 1 artwork",
+                    "src":  "./images/caelielle/sfw/Celestine 1.jpg"
+                },
+                {
+                    "title":  "Imani 1 Ariella Duo",
+                    "desc":  "Imani 1 Ariella Duo artwork",
+                    "src":  "./images/caelielle/sfw/Imani 1 - Ariella Duo.png"
+                },
+                {
+                    "title":  "Imani 2 Ariella Duo",
+                    "desc":  "Imani 2 Ariella Duo artwork",
+                    "src":  "./images/caelielle/sfw/Imani 2 - Ariella Duo.png"
+                },
+                {
+                    "title":  "Imani 3 Ariella ",
+                    "desc":  "Imani 3 Ariella  artwork",
+                    "src":  "./images/caelielle/sfw/Imani 3 - Ariella .png"
+                },
+                {
+                    "title":  "Imani 4 Ariella Half",
+                    "desc":  "Imani 4 Ariella Half artwork",
+                    "src":  "./images/caelielle/sfw/Imani 4 - Ariella Half.png"
+                },
+                {
+                    "title":  "Imani 5 Ariella ",
+                    "desc":  "Imani 5 Ariella  artwork",
+                    "src":  "./images/caelielle/sfw/Imani 5 - Ariella .png"
+                },
+                {
+                    "title":  "Imani 5 Ariella Half",
+                    "desc":  "Imani 5 Ariella Half artwork",
+                    "src":  "./images/caelielle/sfw/Imani 5 - Ariella Half.png"
+                },
+                {
+                    "title":  "Leefy 2 Ariella Full",
+                    "desc":  "Leefy 2 Ariella Full artwork",
+                    "src":  "./images/caelielle/sfw/Leefy 2 - Ariella Full.jpg"
+                },
+                {
+                    "title":  "Leefy 2 1 Ariella Pfp",
+                    "desc":  "Leefy 2 1 Ariella Pfp artwork",
+                    "src":  "./images/caelielle/sfw/Leefy 2-1 - Ariella PFP.jpg"
+                },
+                {
+                    "title":  "Ray 1 Ariella Headshot",
+                    "desc":  "Ray 1 Ariella Headshot artwork",
+                    "src":  "./images/caelielle/sfw/Ray 1 - Ariella Headshot.png"
+                },
+                {
+                    "title":  "Shystickker",
+                    "desc":  "Shystickker artwork",
+                    "src":  "./images/caelielle/sfw/shystickker.png"
+                }
             ],
     "ref":  [
-
+                {
+                    "title":  "Nsfw",
+                    "desc":  "Nsfw artwork",
+                    "src":  "./images/caelielle/ref/NSFW.png"
+                }
             ],
     "nsfw":  [
-
+                 {
+                     "title":  "00",
+                     "desc":  "00 artwork",
+                     "src":  "./images/caelielle/nsfw/00.jpg"
+                 },
+                 {
+                     "title":  "Akarui 1 Ariella Pfp",
+                     "desc":  "Akarui 1 Ariella Pfp artwork",
+                     "src":  "./images/caelielle/nsfw/Akarui 1 - Ariella PFP.png"
+                 },
+                 {
+                     "title":  "Ari \u0026 Lucy",
+                     "desc":  "Ari \u0026 Lucy artwork",
+                     "src":  "./images/caelielle/nsfw/Ari \u0026 Lucy.png"
+                 },
+                 {
+                     "title":  "Group",
+                     "desc":  "Group artwork",
+                     "src":  "./images/caelielle/nsfw/group.jpg"
+                 },
+                 {
+                     "title":  "Nsfw1",
+                     "desc":  "Nsfw1 artwork",
+                     "src":  "./images/caelielle/nsfw/NSFW1.png"
+                 }
              ]
 }

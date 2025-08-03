@@ -12,6 +12,8 @@ class GalleryManager {
     init() {
         this.setupNSFWToggle();
         this.setupTabs();
+        this.setupDropdowns();
+        this.setupMobileMenu();
     }
 
     /**
@@ -91,10 +93,6 @@ class GalleryManager {
         galleryItem.innerHTML = `
             <img src="${item.src}" alt="${item.title}" loading="lazy" 
                  onerror="this.src='https://via.placeholder.com/300x200/667eea/ffffff?text=Image+Not+Found'">
-            <div class="gallery-item-info">
-                <h4>${item.title}</h4>
-                <p>${item.desc}</p>
-            </div>
         `;
 
         // Add click handler for full-size view
@@ -269,6 +267,39 @@ class GalleryManager {
         if (container) {
             container.innerHTML = `<div class="error">${message}</div>`;
         }
+    }
+
+    /**
+     * Setup dropdown navigation
+     */
+    setupDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            if (toggle && menu) {
+                // Prevent default link behavior for dropdown toggles
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                });
+                
+                // Handle mobile touch events
+                dropdown.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    menu.style.opacity = menu.style.opacity === '1' ? '0' : '1';
+                    menu.style.visibility = menu.style.visibility === 'visible' ? 'hidden' : 'visible';
+                });
+            }
+        });
+    }
+
+    /**
+     * Setup mobile menu functionality
+     */
+    setupMobileMenu() {
+        // This will be handled by NavigationManager, but keeping for consistency
     }
 }
 

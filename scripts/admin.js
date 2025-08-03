@@ -98,6 +98,20 @@ class AdminManager {
         }
 
         try {
+            // Wait for queueManager to be available
+            if (!window.queueManager) {
+                // Wait for queueManager to initialize
+                let attempts = 0;
+                while (!window.queueManager && attempts < 50) {
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    attempts++;
+                }
+                
+                if (!window.queueManager) {
+                    throw new Error('Queue manager not available');
+                }
+            }
+
             if (this.editingCommissionId) {
                 // Update existing commission
                 await window.queueManager.updateCommission(this.editingCommissionId, commission);
@@ -239,10 +253,24 @@ class AdminManager {
         this.setupEventListeners();
 
         // Setup queue manager listener and load queue
-        if (window.queueManager) {
-            window.queueManager.addListener(() => this.refreshAdminQueue());
-            this.refreshAdminQueue();
+        this.waitForQueueManager().then(() => {
+            if (window.queueManager) {
+                window.queueManager.addListener(() => this.refreshAdminQueue());
+                this.refreshAdminQueue();
+            }
+        });
+    }
+
+    /**
+     * Wait for queue manager to be available
+     */
+    async waitForQueueManager() {
+        let attempts = 0;
+        while (!window.queueManager && attempts < 50) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+            attempts++;
         }
+        return window.queueManager;
     }
 
     /**
@@ -350,6 +378,40 @@ window.deleteCommissionConfirm = (id) => {
         window.adminManager.deleteCommissionConfirm(id);
     }
 };
+
+/**
+ * Utility functions
+ */
+class Utils {
+    /**
+     * Show notification message
+     * @param {string} message - Message to display
+     * @param {string} type - Type of notification (success, error, info)
+     */
+    static showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button onclick="this.parentElement.remove()">&times;</button>
+        `;
+
+        // Add to page
+        document.body.appendChild(notification);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+}
 
 // Initialize admin manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

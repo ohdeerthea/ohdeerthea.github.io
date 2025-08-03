@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socials - OhDeerThea</title>
+    <meta name="description" content="Connect with OhDeerThea on various social media platforms.">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">🦌 OhDeerThea</a>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Characters</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./thea.html">Thea</a></li>
+                        <li><a href="./darla.html">Darla</a></li>
+                        <li><a href="./caelielle.html">Caelielle</a></li>
+                        <li><a href="./misc.html">Misc</a></li>
+                    </ul>
+                </li>
+                <li><a href="./queue.html">Commission Queue</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./creator.html">Creator</a></li>
+                        <li><a href="./socials.html">Socials</a></li>
+                    </ul>
+                </li>
+                <li><a href="./admin.html">Admin</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>🌐 Social Links 🌐</h1>
+            <p>Connect with me across the web</p>
+        </section>
+
+        <section class="bio-section">
+            <div class="social-links-grid">
+                <a href="https://www.furaffinity.net/user/hellscuteangel" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon">🎨</div>
+                    <h3>FurAffinity</h3>
+                    <p>@hellscuteangel</p>
+                    <span class="social-url">furaffinity.net/user/hellscuteangel</span>
+                </a>
+
+                <a href="https://bsky.app/profile/ohdeerthea.bsky.social" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon">🦋</div>
+                    <h3>Bluesky</h3>
+                    <p>@ohdeerthea.bsky.social</p>
+                    <span class="social-url">bsky.app/profile/ohdeerthea.bsky.social</span>
+                </a>
+
+                <div class="social-card discord-card">
+                    <div class="social-icon">💬</div>
+                    <h3>Discord</h3>
+                    <p>User ID: 314355817602351114</p>
+                    <button onclick="copyDiscordId()" class="copy-button">Copy User ID</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <h2>About My Social Presence</h2>
+            <p>You can find me across various platforms where I share artwork, updates, and connect with the community. Feel free to reach out through any of these channels!</p>
+            
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>FurAffinity:</strong> My main art gallery and commission updates</li>
+                <li><strong>Bluesky:</strong> General updates, thoughts, and community interaction</li>
+                <li><strong>Discord:</strong> Direct messaging and community chats</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 OhDeerThea. Let's connect!</p>
+    </footer>
+
+    <script src="./scripts/gallery.js"></script>
+    <script>
+        function copyDiscordId() {
+            navigator.clipboard.writeText('314355817602351114').then(() => {
+                const button = document.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#28a745';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

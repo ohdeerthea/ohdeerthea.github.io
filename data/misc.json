@@ -1,9 +1,22 @@
 ﻿{
     "sfw":  [
-
+                {
+                    "title":  "Fb1",
+                    "desc":  "Fb1 artwork",
+                    "src":  "./images/misc/sfw/FB1.jpeg"
+                },
+                {
+                    "title":  "Ray 1 Ash Headshot",
+                    "desc":  "Ray 1 Ash Headshot artwork",
+                    "src":  "./images/misc/sfw/Ray 1 - Ash Headshot.png"
+                }
             ],
     "ref":  [
-
+                {
+                    "title":  "Lyra Dual Ref",
+                    "desc":  "Lyra Dual Ref artwork",
+                    "src":  "./images/misc/ref/Lyra Dual Ref.png"
+                }
             ],
     "nsfw":  [
 

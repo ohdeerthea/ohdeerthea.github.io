@@ -1,11 +1,468 @@
 ﻿{
     "sfw":  [
-
+                {
+                    "title":  "Fb1",
+                    "desc":  "Fb1 artwork",
+                    "src":  "./images/darla/sfw/FB1.png"
+                },
+                {
+                    "title":  "Fb10",
+                    "desc":  "Fb10 artwork",
+                    "src":  "./images/darla/sfw/FB10.png"
+                },
+                {
+                    "title":  "Fb11",
+                    "desc":  "Fb11 artwork",
+                    "src":  "./images/darla/sfw/FB11.png"
+                },
+                {
+                    "title":  "Fb12",
+                    "desc":  "Fb12 artwork",
+                    "src":  "./images/darla/sfw/FB12.png"
+                },
+                {
+                    "title":  "Fb13",
+                    "desc":  "Fb13 artwork",
+                    "src":  "./images/darla/sfw/FB13.png"
+                },
+                {
+                    "title":  "Fb14",
+                    "desc":  "Fb14 artwork",
+                    "src":  "./images/darla/sfw/FB14.png"
+                },
+                {
+                    "title":  "Fb15 1",
+                    "desc":  "Fb15 1 artwork",
+                    "src":  "./images/darla/sfw/FB15-1.jpeg"
+                },
+                {
+                    "title":  "Fb15 2",
+                    "desc":  "Fb15 2 artwork",
+                    "src":  "./images/darla/sfw/FB15-2.jpeg"
+                },
+                {
+                    "title":  "Fb16",
+                    "desc":  "Fb16 artwork",
+                    "src":  "./images/darla/sfw/FB16.png"
+                },
+                {
+                    "title":  "Fb17",
+                    "desc":  "Fb17 artwork",
+                    "src":  "./images/darla/sfw/FB17.png"
+                },
+                {
+                    "title":  "Fb2",
+                    "desc":  "Fb2 artwork",
+                    "src":  "./images/darla/sfw/FB2.png"
+                },
+                {
+                    "title":  "Fb3",
+                    "desc":  "Fb3 artwork",
+                    "src":  "./images/darla/sfw/FB3.png"
+                },
+                {
+                    "title":  "Fb4",
+                    "desc":  "Fb4 artwork",
+                    "src":  "./images/darla/sfw/FB4.png"
+                },
+                {
+                    "title":  "Fb5",
+                    "desc":  "Fb5 artwork",
+                    "src":  "./images/darla/sfw/FB5.jpg"
+                },
+                {
+                    "title":  "Fb5",
+                    "desc":  "Fb5 artwork",
+                    "src":  "./images/darla/sfw/FB5.png"
+                },
+                {
+                    "title":  "Fb6",
+                    "desc":  "Fb6 artwork",
+                    "src":  "./images/darla/sfw/FB6.png"
+                },
+                {
+                    "title":  "Fb7",
+                    "desc":  "Fb7 artwork",
+                    "src":  "./images/darla/sfw/FB7.png"
+                },
+                {
+                    "title":  "Fb9",
+                    "desc":  "Fb9 artwork",
+                    "src":  "./images/darla/sfw/FB9.png"
+                },
+                {
+                    "title":  "Gif1",
+                    "desc":  "Gif1 artwork",
+                    "src":  "./images/darla/sfw/Gif1.gif"
+                },
+                {
+                    "title":  "Hb1",
+                    "desc":  "Hb1 artwork",
+                    "src":  "./images/darla/sfw/HB1.png"
+                },
+                {
+                    "title":  "Hb10",
+                    "desc":  "Hb10 artwork",
+                    "src":  "./images/darla/sfw/HB10.png"
+                },
+                {
+                    "title":  "Hb11",
+                    "desc":  "Hb11 artwork",
+                    "src":  "./images/darla/sfw/HB11.jpg"
+                },
+                {
+                    "title":  "Hb12",
+                    "desc":  "Hb12 artwork",
+                    "src":  "./images/darla/sfw/HB12.png"
+                },
+                {
+                    "title":  "Hb13",
+                    "desc":  "Hb13 artwork",
+                    "src":  "./images/darla/sfw/HB13.png"
+                },
+                {
+                    "title":  "Hb14",
+                    "desc":  "Hb14 artwork",
+                    "src":  "./images/darla/sfw/HB14.jpg"
+                },
+                {
+                    "title":  "Hb15",
+                    "desc":  "Hb15 artwork",
+                    "src":  "./images/darla/sfw/HB15.png"
+                },
+                {
+                    "title":  "Hb16",
+                    "desc":  "Hb16 artwork",
+                    "src":  "./images/darla/sfw/HB16.png"
+                },
+                {
+                    "title":  "Hb17",
+                    "desc":  "Hb17 artwork",
+                    "src":  "./images/darla/sfw/HB17.jpg"
+                },
+                {
+                    "title":  "Hb18",
+                    "desc":  "Hb18 artwork",
+                    "src":  "./images/darla/sfw/HB18.png"
+                },
+                {
+                    "title":  "Hb18 2",
+                    "desc":  "Hb18 2 artwork",
+                    "src":  "./images/darla/sfw/HB18-2.png"
+                },
+                {
+                    "title":  "Hb19",
+                    "desc":  "Hb19 artwork",
+                    "src":  "./images/darla/sfw/HB19.png"
+                },
+                {
+                    "title":  "Hb2",
+                    "desc":  "Hb2 artwork",
+                    "src":  "./images/darla/sfw/HB2.jpg"
+                },
+                {
+                    "title":  "Hb2",
+                    "desc":  "Hb2 artwork",
+                    "src":  "./images/darla/sfw/HB2.png"
+                },
+                {
+                    "title":  "Hb20",
+                    "desc":  "Hb20 artwork",
+                    "src":  "./images/darla/sfw/HB20.png"
+                },
+                {
+                    "title":  "Hb3",
+                    "desc":  "Hb3 artwork",
+                    "src":  "./images/darla/sfw/HB3.png"
+                },
+                {
+                    "title":  "Hb4",
+                    "desc":  "Hb4 artwork",
+                    "src":  "./images/darla/sfw/HB4.png"
+                },
+                {
+                    "title":  "Hb5",
+                    "desc":  "Hb5 artwork",
+                    "src":  "./images/darla/sfw/HB5.png"
+                },
+                {
+                    "title":  "Hb6",
+                    "desc":  "Hb6 artwork",
+                    "src":  "./images/darla/sfw/HB6.png"
+                },
+                {
+                    "title":  "Hb7",
+                    "desc":  "Hb7 artwork",
+                    "src":  "./images/darla/sfw/HB7.png"
+                },
+                {
+                    "title":  "Hb7 2",
+                    "desc":  "Hb7 2 artwork",
+                    "src":  "./images/darla/sfw/HB7-2.png"
+                },
+                {
+                    "title":  "Hb8",
+                    "desc":  "Hb8 artwork",
+                    "src":  "./images/darla/sfw/HB8.jpg"
+                },
+                {
+                    "title":  "Hb9",
+                    "desc":  "Hb9 artwork",
+                    "src":  "./images/darla/sfw/HB9.jpg"
+                },
+                {
+                    "title":  "Ishy1",
+                    "desc":  "Ishy1 artwork",
+                    "src":  "./images/darla/sfw/Ishy1.png"
+                },
+                {
+                    "title":  "Ishy2",
+                    "desc":  "Ishy2 artwork",
+                    "src":  "./images/darla/sfw/Ishy2.jpg"
+                },
+                {
+                    "title":  "Ishy4",
+                    "desc":  "Ishy4 artwork",
+                    "src":  "./images/darla/sfw/Ishy4.png"
+                },
+                {
+                    "title":  "Ishy7",
+                    "desc":  "Ishy7 artwork",
+                    "src":  "./images/darla/sfw/Ishy7.jpg"
+                },
+                {
+                    "title":  "Pfp1",
+                    "desc":  "Pfp1 artwork",
+                    "src":  "./images/darla/sfw/PFP1.png"
+                },
+                {
+                    "title":  "Pfp2",
+                    "desc":  "Pfp2 artwork",
+                    "src":  "./images/darla/sfw/PFP2.png"
+                },
+                {
+                    "title":  "Pfp3",
+                    "desc":  "Pfp3 artwork",
+                    "src":  "./images/darla/sfw/PFP3.png"
+                },
+                {
+                    "title":  "Pfp4",
+                    "desc":  "Pfp4 artwork",
+                    "src":  "./images/darla/sfw/PFP4.png"
+                },
+                {
+                    "title":  "Pfp5",
+                    "desc":  "Pfp5 artwork",
+                    "src":  "./images/darla/sfw/PFP5.png"
+                },
+                {
+                    "title":  "Pfp6",
+                    "desc":  "Pfp6 artwork",
+                    "src":  "./images/darla/sfw/PFP6.png"
+                },
+                {
+                    "title":  "Pfp7",
+                    "desc":  "Pfp7 artwork",
+                    "src":  "./images/darla/sfw/PFP7.png"
+                },
+                {
+                    "title":  "Pfp8",
+                    "desc":  "Pfp8 artwork",
+                    "src":  "./images/darla/sfw/PFP8.png"
+                },
+                {
+                    "title":  "Pfp9",
+                    "desc":  "Pfp9 artwork",
+                    "src":  "./images/darla/sfw/PFP9.png"
+                },
+                {
+                    "title":  "Sketch1",
+                    "desc":  "Sketch1 artwork",
+                    "src":  "./images/darla/sfw/Sketch1.png"
+                },
+                {
+                    "title":  "Sketch4",
+                    "desc":  "Sketch4 artwork",
+                    "src":  "./images/darla/sfw/Sketch4.jpg"
+                }
             ],
     "ref":  [
-
+                {
+                    "title":  "Reference",
+                    "desc":  "Reference artwork",
+                    "src":  "./images/darla/ref/Reference.png"
+                },
+                {
+                    "title":  "Reference Nsfw",
+                    "desc":  "Reference Nsfw artwork",
+                    "src":  "./images/darla/ref/Reference_NSFW.png"
+                },
+                {
+                    "title":  "Reference Sfw",
+                    "desc":  "Reference Sfw artwork",
+                    "src":  "./images/darla/ref/Reference_SFW.png"
+                }
             ],
     "nsfw":  [
-
+                 {
+                     "title":  "Ishy6",
+                     "desc":  "Ishy6 artwork",
+                     "src":  "./images/darla/nsfw/Ishy6.jpg"
+                 },
+                 {
+                     "title":  "Ishy8",
+                     "desc":  "Ishy8 artwork",
+                     "src":  "./images/darla/nsfw/Ishy8.png"
+                 },
+                 {
+                     "title":  "Nsfw1",
+                     "desc":  "Nsfw1 artwork",
+                     "src":  "./images/darla/nsfw/NSFW1.jpg"
+                 },
+                 {
+                     "title":  "Nsfw10",
+                     "desc":  "Nsfw10 artwork",
+                     "src":  "./images/darla/nsfw/NSFW10.png"
+                 },
+                 {
+                     "title":  "Nsfw10 1",
+                     "desc":  "Nsfw10 1 artwork",
+                     "src":  "./images/darla/nsfw/NSFW10-1.jpg"
+                 },
+                 {
+                     "title":  "Nsfw10 2",
+                     "desc":  "Nsfw10 2 artwork",
+                     "src":  "./images/darla/nsfw/NSFW10-2.jpg"
+                 },
+                 {
+                     "title":  "Nsfw11",
+                     "desc":  "Nsfw11 artwork",
+                     "src":  "./images/darla/nsfw/NSFW11.png"
+                 },
+                 {
+                     "title":  "Nsfw12",
+                     "desc":  "Nsfw12 artwork",
+                     "src":  "./images/darla/nsfw/NSFW12.png"
+                 },
+                 {
+                     "title":  "Nsfw13",
+                     "desc":  "Nsfw13 artwork",
+                     "src":  "./images/darla/nsfw/NSFW13.png"
+                 },
+                 {
+                     "title":  "Nsfw14",
+                     "desc":  "Nsfw14 artwork",
+                     "src":  "./images/darla/nsfw/NSFW14.jpg"
+                 },
+                 {
+                     "title":  "Nsfw15",
+                     "desc":  "Nsfw15 artwork",
+                     "src":  "./images/darla/nsfw/NSFW15.png"
+                 },
+                 {
+                     "title":  "Nsfw16",
+                     "desc":  "Nsfw16 artwork",
+                     "src":  "./images/darla/nsfw/NSFW16.png"
+                 },
+                 {
+                     "title":  "Nsfw17",
+                     "desc":  "Nsfw17 artwork",
+                     "src":  "./images/darla/nsfw/NSFW17.png"
+                 },
+                 {
+                     "title":  "Nsfw18",
+                     "desc":  "Nsfw18 artwork",
+                     "src":  "./images/darla/nsfw/NSFW18.png"
+                 },
+                 {
+                     "title":  "Nsfw19",
+                     "desc":  "Nsfw19 artwork",
+                     "src":  "./images/darla/nsfw/NSFW19.png"
+                 },
+                 {
+                     "title":  "Nsfw2",
+                     "desc":  "Nsfw2 artwork",
+                     "src":  "./images/darla/nsfw/NSFW2.png"
+                 },
+                 {
+                     "title":  "Nsfw20",
+                     "desc":  "Nsfw20 artwork",
+                     "src":  "./images/darla/nsfw/NSFW20.png"
+                 },
+                 {
+                     "title":  "Nsfw21",
+                     "desc":  "Nsfw21 artwork",
+                     "src":  "./images/darla/nsfw/NSFW21.jpeg"
+                 },
+                 {
+                     "title":  "Nsfw22",
+                     "desc":  "Nsfw22 artwork",
+                     "src":  "./images/darla/nsfw/NSFW22.png"
+                 },
+                 {
+                     "title":  "Nsfw23",
+                     "desc":  "Nsfw23 artwork",
+                     "src":  "./images/darla/nsfw/NSFW23.png"
+                 },
+                 {
+                     "title":  "Nsfw24",
+                     "desc":  "Nsfw24 artwork",
+                     "src":  "./images/darla/nsfw/NSFW24.jpg"
+                 },
+                 {
+                     "title":  "Nsfw25",
+                     "desc":  "Nsfw25 artwork",
+                     "src":  "./images/darla/nsfw/NSFW25.jpg"
+                 },
+                 {
+                     "title":  "Nsfw3",
+                     "desc":  "Nsfw3 artwork",
+                     "src":  "./images/darla/nsfw/NSFW3.png"
+                 },
+                 {
+                     "title":  "Nsfw4",
+                     "desc":  "Nsfw4 artwork",
+                     "src":  "./images/darla/nsfw/NSFW4.jpg"
+                 },
+                 {
+                     "title":  "Nsfw5",
+                     "desc":  "Nsfw5 artwork",
+                     "src":  "./images/darla/nsfw/NSFW5.png"
+                 },
+                 {
+                     "title":  "Nsfw6",
+                     "desc":  "Nsfw6 artwork",
+                     "src":  "./images/darla/nsfw/NSFW6.png"
+                 },
+                 {
+                     "title":  "Nsfw7",
+                     "desc":  "Nsfw7 artwork",
+                     "src":  "./images/darla/nsfw/NSFW7.png"
+                 },
+                 {
+                     "title":  "Nsfw8 1",
+                     "desc":  "Nsfw8 1 artwork",
+                     "src":  "./images/darla/nsfw/NSFW8-1.png"
+                 },
+                 {
+                     "title":  "Nsfw8 2",
+                     "desc":  "Nsfw8 2 artwork",
+                     "src":  "./images/darla/nsfw/NSFW8-2.png"
+                 },
+                 {
+                     "title":  "Nsfw8 3",
+                     "desc":  "Nsfw8 3 artwork",
+                     "src":  "./images/darla/nsfw/NSFW8-3.png"
+                 },
+                 {
+                     "title":  "Nsfw8 4",
+                     "desc":  "Nsfw8 4 artwork",
+                     "src":  "./images/darla/nsfw/NSFW8-4.png"
+                 },
+                 {
+                     "title":  "Nsfw9",
+                     "desc":  "Nsfw9 artwork",
+                     "src":  "./images/darla/nsfw/NSFW9.png"
+                 }
              ]
 }
