@@ -61,8 +61,8 @@
                 <div class="social-card discord-card">
                     <div class="social-icon">💬</div>
                     <h3>Discord</h3>
-                    <p>User ID: 314355817602351114</p>
-                    <button onclick="copyDiscordId()" class="copy-button">Copy User ID</button>
+                    <p>@ohdeerthea</p>
+                    <button onclick="copyDiscordHandle()" class="copy-button">Copy Username</button>
                 </div>
             </div>
         </section>
@@ -85,8 +85,8 @@
 
     <script src="./scripts/gallery.js"></script>
     <script>
-        function copyDiscordId() {
-            navigator.clipboard.writeText('314355817602351114').then(() => {
+        function copyDiscordHandle() {
+            navigator.clipboard.writeText('ohdeerthea').then(() => {
                 const button = document.querySelector('.copy-button');
                 const originalText = button.textContent;
                 button.textContent = 'Copied!';
@@ -98,5 +98,6 @@
             });
         }
     </script>
+    <script src="./scripts/deer-system.js"></script>
 </body>
 </html>

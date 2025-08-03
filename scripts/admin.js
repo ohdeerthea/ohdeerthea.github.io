@@ -3,6 +3,7 @@
  */
 class AdminManager {
     constructor() {
+        console.log('AdminManager constructor called');
         this.isAuthenticated = false;
         this.adminPassword = '3272';
         this.editingCommissionId = null;
@@ -18,6 +19,12 @@ class AdminManager {
      * Check if user is already authenticated
      */
     checkAuthentication() {
+        const adminContainer = document.querySelector('.admin-container');
+        if (!adminContainer) {
+            console.error('Admin container not found');
+            return;
+        }
+
         const isAuth = sessionStorage.getItem('admin_authenticated');
         if (isAuth === 'true') {
             this.isAuthenticated = true;
@@ -243,6 +250,17 @@ class AdminManager {
 
             <div class="admin-queue">
                 <h3>Current Queue</h3>
+                <div class="queue-actions" style="margin-bottom: 1rem;">
+                    <button class="btn btn-small" onclick="window.prepopulateQueue().then(success => { if(success) alert('Queue prepopulated successfully!'); else alert('Failed to prepopulate queue.'); })">
+                        📥 Prepopulate Queue
+                    </button>
+                    <button class="btn btn-small btn-danger" onclick="window.clearQueue().then(success => { if(success) alert('Queue cleared successfully!'); else alert('Failed to clear queue.'); })">
+                        🗑️ Clear Queue
+                    </button>
+                    <button class="btn btn-small" onclick="adminManager.showCompletedCommissions()">
+                        ✅ View Completed
+                    </button>
+                </div>
                 <div id="admin-queue-container">
                     <div class="loading">Loading queue...</div>
                 </div>
@@ -364,6 +382,68 @@ class AdminManager {
         this.showLoginForm();
         Utils.showNotification('Logged out successfully.', 'success');
     }
+
+    /**
+     * Show completed commissions
+     */
+    async showCompletedCommissions() {
+        if (!window.queueManager) return;
+
+        try {
+            const completed = await window.queueManager.getCompletedCommissions();
+            
+            if (completed.length === 0) {
+                Utils.showNotification('No completed commissions found.', 'info');
+                return;
+            }
+
+            // Create modal to display completed commissions
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.7); z-index: 1000;
+                display: flex; align-items: center; justify-content: center;
+                padding: 2rem;
+            `;
+
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: white; border-radius: 8px; padding: 2rem;
+                max-width: 800px; max-height: 80vh; overflow-y: auto;
+                width: 100%;
+            `;
+
+            modalContent.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3>Completed Commissions</h3>
+                    <button onclick="this.closest('.modal-overlay').remove()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+                </div>
+                <div class="completed-list">
+                    ${completed.map(commission => `
+                        <div class="queue-item" style="margin-bottom: 1rem; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+                            <h4>${commission.title}</h4>
+                            <p><strong>Artist:</strong> ${commission.artist}</p>
+                            <p>${commission.description}</p>
+                            <div class="queue-meta">
+                                <span class="queue-tag">📅 Commissioned: ${Utils.formatDate(commission.date)}</span>
+                                <span class="queue-tag">✅ Completed: ${Utils.formatDate(commission.completedAt?.split('T')[0] || commission.date)}</span>
+                                <span class="queue-tag">🎨 ${commission.type}</span>
+                                ${commission.price ? `<span class="queue-tag">💰 ${commission.price}</span>` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+        } catch (error) {
+            console.error('Error loading completed commissions:', error);
+            Utils.showNotification('Failed to load completed commissions.', 'error');
+        }
+    }
 }
 
 // Global functions for button clicks
@@ -415,5 +495,6 @@ class Utils {
 
 // Initialize admin manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing admin manager');
     window.adminManager = new AdminManager();
 });

@@ -72,12 +72,16 @@
         <section class="bio-section">
             <h2>Commission Information</h2>
             <p>Interested in commissioning artwork? Here's some information about the commission process:</p>
-            <ul style="margin: 1rem 0; padding-left: 2rem;">
-                <li><strong>Types Available:</strong> Bust/Portrait, Half Body, Full Body, Reference Sheets, Multi-Character pieces</li>
-                <li><strong>Timeframes:</strong> Vary by artist and complexity, typically 2-8 weeks</li>
-                <li><strong>Updates:</strong> This queue is updated in real-time as progress is made</li>
-                <li><strong>Artists:</strong> Working with various talented artists for different styles and specialties</li>
-            </ul>
+            <div style="text-align: center;">
+                <div style="display: inline-block; text-align: left; max-width: 600px;">
+                    <ul style="margin: 1rem 0; padding-left: 2rem;">
+                        <li><strong>Types Available:</strong> Bust/Portrait, Half Body, Full Body, Reference Sheets, Multi-Character pieces</li>
+                        <li><strong>Timeframes:</strong> Vary by artist and complexity, typically 2-8 weeks</li>
+                        <li><strong>Updates:</strong> This queue is updated in real-time as progress is made</li>
+                        <li><strong>Artists:</strong> Working with various talented artists for different styles and specialties</li>
+                    </ul>
+                </div>
+            </div>
             <p>Commission slots and availability vary by artist and current workload. Check back regularly for updates!</p>
         </section>
     </main>
@@ -88,6 +92,7 @@
 
     <script type="module" src="./scripts/firebase-config.js"></script>
     <script src="./scripts/gallery.js"></script>
+    <script src="./scripts/deer-system.js"></script>
     <script>
         // Initialize queue display when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {

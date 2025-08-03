@@ -115,10 +115,6 @@ class GalleryManager {
             <div class="modal-content">
                 <span class="modal-close">&times;</span>
                 <img src="${item.src}" alt="${item.title}" class="modal-image">
-                <div class="modal-info">
-                    <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
-                </div>
             </div>
         `;
 
