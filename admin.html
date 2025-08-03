@@ -176,11 +176,23 @@
 
         function waitForQueueManager() {
             let attempts = 0;
-            const maxAttempts = 100; // Increased attempts
+            const maxAttempts = 200; // Increased attempts
             
             const checkQueueManager = () => {
                 console.log(`Checking for queue manager... attempt ${attempts + 1}`);
                 console.log('window.queueManager exists:', !!window.queueManager);
+                console.log('window.CommissionQueueManager exists:', !!window.CommissionQueueManager);
+                
+                // Try to create queue manager if it doesn't exist but class does
+                if (!window.queueManager && window.CommissionQueueManager) {
+                    console.log('Creating queue manager from available class...');
+                    try {
+                        window.queueManager = new window.CommissionQueueManager();
+                        console.log('Successfully created queue manager');
+                    } catch (error) {
+                        console.error('Failed to create queue manager:', error);
+                    }
+                }
                 
                 if (window.queueManager && window.queueManager.getQueue) {
                     console.log('Queue manager found, setting up listeners');
@@ -188,16 +200,18 @@
                     refreshQueue();
                 } else if (attempts < maxAttempts) {
                     attempts++;
-                    setTimeout(checkQueueManager, 50); // Reduced timeout for faster detection
+                    setTimeout(checkQueueManager, 25); // Faster checking
                 } else {
-                    console.error('Queue manager not found after 5 seconds');
+                    console.error('Queue manager not found after maximum attempts');
                     showNotification('Queue manager failed to initialize. Some features may not work.', 'error');
                 }
             };
             
-            // Start checking immediately and also with a delay
+            // Start checking immediately and also with multiple delays
             checkQueueManager();
+            setTimeout(checkQueueManager, 50);
             setTimeout(checkQueueManager, 100);
+            setTimeout(checkQueueManager, 500);
         }
 
         function checkAuthentication() {
