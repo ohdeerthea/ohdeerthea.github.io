@@ -45,12 +45,12 @@
         <section class="full-width-section">
             <div id="admin-content">
                 <!-- Login Form -->
-                <div id="login-section" class="admin-card">
+                <div id="login-section" class="admin-card" style="display: block;">
                     <h2>Admin Login</h2>
                     <form id="login-form">
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required>
+                            <input type="password" id="password" name="password" required placeholder="Enter admin PIN">
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
@@ -144,12 +144,16 @@
     </footer>
 
     <!-- Scripts -->
-    <script type="module" src="./scripts/firebase-config.js"></script>
-    <script src="./scripts/gallery.js"></script>
-    <script src="./scripts/queue-prepopulation.js"></script>
-    <script src="./scripts/deer-system.js"></script>
+    <script type="module" src="./scripts/firebase-config.js" onload="console.log('Firebase config loaded')" onerror="console.error('Failed to load firebase-config.js')"></script>
+    <script src="./scripts/gallery.js" onload="console.log('Gallery script loaded')" onerror="console.error('Failed to load gallery.js')"></script>
+    <script src="./scripts/queue-prepopulation.js" onload="console.log('Queue prepopulation loaded')" onerror="console.error('Failed to load queue-prepopulation.js')"></script>
+    <script src="./scripts/deer-system.js" onload="console.log('Deer system loaded')" onerror="console.error('Failed to load deer-system.js')"></script>
     
     <script>
+        // Debug info
+        console.log('Admin script starting...');
+        console.log('Document ready state:', document.readyState);
+        
         // Simple admin functionality
         let isAuthenticated = false;
         let editingCommissionId = null;
@@ -157,6 +161,12 @@
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded fired');
+            console.log('Admin page loaded');
+            // Clear any existing authentication first
+            sessionStorage.removeItem('admin_authenticated');
+            isAuthenticated = false;
+            
             checkAuthentication();
             setupEventListeners();
             
@@ -166,51 +176,90 @@
 
         function waitForQueueManager() {
             let attempts = 0;
-            const maxAttempts = 50;
+            const maxAttempts = 100; // Increased attempts
             
             const checkQueueManager = () => {
+                console.log(`Checking for queue manager... attempt ${attempts + 1}`);
+                console.log('window.queueManager exists:', !!window.queueManager);
+                
                 if (window.queueManager && window.queueManager.getQueue) {
                     console.log('Queue manager found, setting up listeners');
                     window.queueManager.addListener(refreshQueue);
                     refreshQueue();
                 } else if (attempts < maxAttempts) {
                     attempts++;
-                    setTimeout(checkQueueManager, 100);
+                    setTimeout(checkQueueManager, 50); // Reduced timeout for faster detection
                 } else {
                     console.error('Queue manager not found after 5 seconds');
                     showNotification('Queue manager failed to initialize. Some features may not work.', 'error');
                 }
             };
             
+            // Start checking immediately and also with a delay
             checkQueueManager();
+            setTimeout(checkQueueManager, 100);
         }
 
         function checkAuthentication() {
+            console.log('Checking authentication...');
             const isAuth = sessionStorage.getItem('admin_authenticated');
+            console.log('Session storage auth:', isAuth);
+            
             if (isAuth === 'true') {
                 isAuthenticated = true;
                 showAdminPanel();
+                console.log('User already authenticated');
+            } else {
+                isAuthenticated = false;
+                showLoginForm();
+                console.log('User not authenticated, showing login form');
             }
         }
 
+        function showLoginForm() {
+            console.log('Showing login form');
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('admin-panel').style.display = 'none';
+        }
+
         function setupEventListeners() {
+            console.log('Setting up event listeners...');
+            
             // Login form
-            document.getElementById('login-form').addEventListener('submit', handleLogin);
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                console.log('Login form found, adding listener');
+                loginForm.addEventListener('submit', handleLogin);
+            } else {
+                console.error('Login form not found!');
+            }
             
             // Commission form
-            document.getElementById('commission-form').addEventListener('submit', handleCommissionSubmit);
+            const commissionForm = document.getElementById('commission-form');
+            if (commissionForm) {
+                console.log('Commission form found, adding listener');
+                commissionForm.addEventListener('submit', handleCommissionSubmit);
+            } else {
+                console.error('Commission form not found!');
+            }
         }
 
         function handleLogin(e) {
             e.preventDefault();
+            console.log('Login form submitted');
+            
             const password = document.getElementById('password').value;
+            console.log('Password entered:', password ? '[PASSWORD PROVIDED]' : '[NO PASSWORD]');
+            console.log('Expected password:', ADMIN_PASSWORD);
             
             if (password === ADMIN_PASSWORD) {
+                console.log('Password correct, authenticating...');
                 isAuthenticated = true;
                 sessionStorage.setItem('admin_authenticated', 'true');
                 showAdminPanel();
                 showNotification('Login successful!', 'success');
             } else {
+                console.log('Password incorrect');
                 showNotification('Invalid password!', 'error');
             }
         }
@@ -242,9 +291,14 @@
                 description: formData.get('description'),
                 date: formData.get('date'),
                 type: formData.get('type'),
-                status: formData.get('status'),
-                price: formData.get('price') || undefined
+                status: formData.get('status')
             };
+            
+            // Only add price if it's not empty
+            const priceValue = formData.get('price');
+            if (priceValue && priceValue.trim() !== '') {
+                commission.price = priceValue.trim();
+            }
 
             console.log('Commission data:', commission);
 
@@ -368,10 +422,10 @@
         }
 
         function logout() {
+            console.log('Logging out...');
             isAuthenticated = false;
             sessionStorage.removeItem('admin_authenticated');
-            document.getElementById('login-section').style.display = 'block';
-            document.getElementById('admin-panel').style.display = 'none';
+            showLoginForm();
             document.getElementById('password').value = '';
             showNotification('Logged out successfully.', 'success');
         }
