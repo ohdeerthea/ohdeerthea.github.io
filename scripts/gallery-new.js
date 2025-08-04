@@ -79,19 +79,6 @@ class GalleryManager {
             }
         });
 
-        // Handle NSFW toggle changes
-        document.addEventListener('change', (e) => {
-            if (e.target.classList.contains('nsfw-toggle-input')) {
-                const container = e.target.closest('[id$="-gallery-container"]');
-                if (container) {
-                    const characterName = container.id.replace('-gallery-container', '');
-                    const shouldBlur = !e.target.checked;
-                    this.toggleNSFWBlur(characterName, shouldBlur);
-                    localStorage.setItem(`${characterName}-nsfw-blurred`, shouldBlur.toString());
-                }
-            }
-        });
-
         // Setup dropdown menus
         this.setupDropdowns();
         
@@ -225,9 +212,8 @@ class GalleryManager {
             // Create image grid
             const imageItems = images.map((imageName, index) => {
                 const imagePath = `./images/${characterName}/${galleryType}/${imageName}`;
-                const nsfwClass = galleryType === 'nsfw' ? 'nsfw' : '';
                 return `
-                    <div class="gallery-item ${nsfwClass}" data-index="${index}">
+                    <div class="gallery-item" data-index="${index}">
                         <img src="${imagePath}" 
                              alt="${characterName} ${galleryType} ${index + 1}" 
                              class="gallery-image"
@@ -239,39 +225,12 @@ class GalleryManager {
             
             galleryGrid.innerHTML = imageItems;
             
-            // Apply NSFW blur state if we're showing NSFW content
-            if (galleryType === 'nsfw') {
-                const isBlurred = localStorage.getItem(`${characterName}-nsfw-blurred`) !== 'false';
-                this.toggleNSFWBlur(characterName, isBlurred);
-                
-                // Update toggle state
-                const nsfwToggle = document.querySelector(`#${characterName}-gallery-container .nsfw-toggle-input`);
-                if (nsfwToggle) {
-                    nsfwToggle.checked = !isBlurred;
-                }
-            }
-            
             console.log(`Loaded ${images.length} images for ${characterName} ${galleryType}`);
             
         } catch (error) {
             console.error(`Error switching gallery:`, error);
             galleryGrid.innerHTML = `<div class="loading">Error loading ${galleryType} images</div>`;
         }
-    }
-
-    toggleNSFWBlur(characterName, shouldBlur) {
-        console.log(`Toggling NSFW blur for ${characterName}: ${shouldBlur}`);
-        const container = document.getElementById(`${characterName}-gallery-container`);
-        if (!container) return;
-
-        const nsfwItems = container.querySelectorAll('.gallery-item.nsfw');
-        nsfwItems.forEach(item => {
-            if (shouldBlur) {
-                item.classList.add('blurred');
-            } else {
-                item.classList.remove('blurred');
-            }
-        });
     }
 
     openModal(imageSrc, imageAlt) {

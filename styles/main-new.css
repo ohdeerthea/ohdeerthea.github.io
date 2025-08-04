@@ -57,7 +57,7 @@ body::before {
     text-align: center;
 }
 
-/* Full Width Sections - TRUE edge-to-edge spanning */
+/* Full Width Sections */
 .full-width-section {
     width: 100vw;
     background: rgba(245, 222, 179, 0.95);
@@ -69,10 +69,6 @@ body::before {
     border-bottom: 1px solid rgba(139, 69, 19, 0.2);
     text-align: center;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 .full-width-section .container {
@@ -289,11 +285,6 @@ nav {
     border-top: 1px solid rgba(139, 69, 19, 0.2);
     border-bottom: 1px solid rgba(139, 69, 19, 0.2);
     text-align: center;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 .bio-section .container {
@@ -372,114 +363,6 @@ nav {
     background: rgba(139, 69, 19, 0.9);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Legacy tab-button support */
-.tab-button {
-    background: rgba(139, 115, 85, 0.8);
-    color: #f5deb3;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.tab-button:hover,
-.tab-button.active {
-    background: rgba(139, 69, 19, 0.9);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* NSFW Controls */
-.nsfw-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: rgba(139, 115, 85, 0.6);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-.nsfw-controls label {
-    color: #f5deb3;
-    font-weight: bold;
-}
-
-.nsfw-toggle {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.nsfw-toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-/* Blurred NSFW images */
-.gallery-item.nsfw.blurred img {
-    filter: blur(20px);
-    transition: filter 0.3s ease;
-}
-
-.gallery-item.nsfw.blurred::after {
-    content: '🔞 NSFW - Click toggle to view';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
 }
 
 /* Gallery Grid */
@@ -607,11 +490,6 @@ input:checked + .slider:before {
     border-top: 1px solid rgba(139, 69, 19, 0.2);
     border-bottom: 1px solid rgba(139, 69, 19, 0.2);
     text-align: center;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 .queue-container {
@@ -684,11 +562,6 @@ input:checked + .slider:before {
     border-top: 1px solid rgba(139, 69, 19, 0.2);
     border-bottom: 1px solid rgba(139, 69, 19, 0.2);
     text-align: center;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 .social-links-grid {

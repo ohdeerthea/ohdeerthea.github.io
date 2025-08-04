@@ -70,24 +70,24 @@
             </div>
         </section>
 
-        <section class="gallery-section">
-            <div class="nsfw-controls">
-                <label for="nsfw-toggle">Show NSFW Content:</label>
-                <label class="nsfw-toggle">
-                    <input type="checkbox" id="nsfw-toggle">
-                    <span class="slider"></span>
-                </label>
-                <span style="color: rgba(255, 255, 255, 0.8);">NSFW images are blurred by default</span>
+        <section class="full-width-section">
+            <div class="container">
+                <div class="gallery-section">
+                    <div class="nsfw-controls">
+                        <label for="nsfw-toggle">Show NSFW Content:</label>
+                        <label class="nsfw-toggle">
+                            <input type="checkbox" id="nsfw-toggle" class="nsfw-toggle-input">
+                            <span class="slider"></span>
+                        </label>
+                        <span style="color: rgba(255, 255, 255, 0.8);">NSFW images are blurred by default</span>
             </div>
 
-            <div class="gallery-tabs">
-                <button class="tab-button active" data-section="sfw">SFW Gallery</button>
-                <button class="tab-button" data-section="nsfw">NSFW Gallery</button>
-                <button class="tab-button" data-section="ref">References</button>
-            </div>
+                    </div>
 
-            <div id="gallery-container">
-                <div class="loading">Loading gallery...</div>
+                    <div id="thea-gallery-container">
+                        <div class="loading">Loading gallery...</div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
