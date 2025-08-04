@@ -579,6 +579,108 @@ nav::after {
     color: #2d4a3e;
 }
 
+/* Character Info Grid */
+.character-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-card {
+    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--antique-white) 100%);
+    border: 2px solid var(--border-subtle);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(107, 142, 90, 0.05) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--sage-green);
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.info-card h3 {
+    color: var(--text-accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.info-card p {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Character Bio Styling */
+.character-bio {
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.story-header h3 {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.story-header h1 {
+    color: var(--text-accent);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(139, 69, 19, 0.1);
+}
+
+.story-header .subtitle {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.character-bio p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
 /* =================================
    GALLERY SECTIONS
    ================================= */
@@ -1175,6 +1277,27 @@ footer {
     .character-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .character-info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .info-card {
+        padding: 1rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1rem;
+    }
+    
+    .character-bio {
+        text-align: left;
+    }
+    
+    .story-header h1 {
+        font-size: 1.5rem;
     }
     
     .gallery-grid {
