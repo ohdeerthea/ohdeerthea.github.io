@@ -43,12 +43,62 @@ function createEasterEggDeer() {
     document.body.appendChild(easterEggDeer);
 }
 
-// Show easter egg modal
+// Show easter egg popup
 function showEasterEggModal() {
-    // Check if modal already exists
-    if (document.querySelector('.easter-egg-modal')) return;
+    // Check if popup already exists
+    if (document.querySelector('.easter-egg-popup')) return;
     
     const collabCode = generateCollabCode();
+    
+    const popup = document.createElement('div');
+    popup.className = 'easter-egg-popup';
+    
+    popup.innerHTML = `
+        <div class="popup-header">
+            <span class="popup-icon">🦌</span>
+            <span class="popup-title">Secret Discovery!</span>
+            <button class="popup-close" onclick="this.closest('.easter-egg-popup').remove()">&times;</button>
+        </div>
+        <div class="popup-body">
+            <p><strong>FREE COLLABORATION OPPORTUNITY!</strong></p>
+            <p>You found the hidden deer! Send me this code:</p>
+            <div class="collab-code-small" id="collab-code-display">
+                ${collabCode}
+            </div>
+            <div class="popup-actions">
+                <button class="btn-small btn-primary" onclick="copyCollabCode()">
+                    📋 Copy
+                </button>
+                <button class="btn-small btn-info" onclick="showFullDetails()">
+                    ℹ️ Details
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+    
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+        if (popup.parentElement) {
+            popup.style.animation = 'slideOut 0.3s ease forwards';
+            setTimeout(() => popup.remove(), 300);
+        }
+    }, 10000);
+    
+    // Celebrate with extra deer!
+    for (let i = 0; i < 3; i++) {
+        setTimeout(() => createFloatingDeer(), i * 200);
+    }
+}
+
+// Show full details modal
+function showFullDetails() {
+    // Remove the popup first
+    const popup = document.querySelector('.easter-egg-popup');
+    if (popup) popup.remove();
+    
+    const collabCode = document.getElementById('collab-code-display').textContent;
     
     const modal = document.createElement('div');
     modal.className = 'easter-egg-modal';
@@ -61,7 +111,7 @@ function showEasterEggModal() {
             <p>You've discovered a <strong>FREE COLLABORATION OPPORTUNITY</strong>!</p>
             <p>Send me this secret code and if you're the first one to message me with it, you can get a free collaborative artwork from an artist of my choice within my budget!</p>
             
-            <div class="collab-code" id="collab-code-display">
+            <div class="collab-code" id="collab-code-display-full">
                 ${collabCode}
             </div>
             
@@ -77,7 +127,7 @@ function showEasterEggModal() {
                 This is a one-time opportunity per code. Good luck! 🍀
             </p>
             
-            <button class="btn btn-primary" onclick="copyCollabCode()" style="margin: 1rem 0.5rem;">
+            <button class="btn btn-primary" onclick="copyCollabCodeFull()" style="margin: 1rem 0.5rem;">
                 📋 Copy Code
             </button>
             <button class="btn btn-secondary" onclick="this.closest('.easter-egg-modal').remove()">
@@ -94,11 +144,6 @@ function showEasterEggModal() {
     });
     
     document.body.appendChild(modal);
-    
-    // Celebrate with extra deer!
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => createFloatingDeer(), i * 200);
-    }
 }
 
 // Copy collaboration code to clipboard
@@ -136,6 +181,22 @@ function fallbackCopyCode(code) {
     }
     
     document.body.removeChild(textArea);
+}
+
+// Copy collaboration code from full modal
+function copyCollabCodeFull() {
+    const codeElement = document.getElementById('collab-code-display-full');
+    const code = codeElement.textContent;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(() => {
+            showNotification('Collaboration code copied to clipboard! 🎉', 'success');
+        }).catch(() => {
+            fallbackCopyCode(code);
+        });
+    } else {
+        fallbackCopyCode(code);
+    }
 }
 
 // Simple notification function (fallback if not available)

@@ -1,7 +1,42 @@
 /* =================================
-   OHDEERTHEA PORTFOLIO - MAIN CSS
-   Complete Redesign for Full-Width Centering
+   OHDEERTHEA PORTFOLIO - COTTAGECORE DEER THEME
+   Enhanced with warm earth tones and nature motifs
    ================================= */
+
+/* CSS Variables for Cottagecore Theme */
+:root {
+    /* Warm Earth Tones */
+    --primary-brown: #8b4513;
+    --warm-cream: #faf0e6;
+    --sage-green: #9caf88;
+    --moss-green: #6b8e5a;
+    --deer-brown: #a0522d;
+    --mushroom-beige: #d2b48c;
+    --forest-shadow: #2f4f2f;
+    --antique-white: #faebd7;
+    --rustic-orange: #cd853f;
+    
+    /* Background gradients */
+    --bg-primary: linear-gradient(135deg, #faf0e6 0%, #f5deb3 25%, #deb887 75%, #d2b48c 100%);
+    --bg-secondary: linear-gradient(45deg, #9caf88 0%, #8fbc8f 50%, #a8d3a8 100%);
+    --bg-card: rgba(250, 240, 230, 0.95);
+    --bg-darker: #8b7355;
+    
+    /* Text colors */
+    --text-primary: #2f4f2f;
+    --text-secondary: #556b2f;
+    --text-accent: #8b4513;
+    
+    /* Accent colors */
+    --accent-green: #6b8e5a;
+    --accent-orange: #cd853f;
+    --accent-brown: #a0522d;
+    
+    /* Borders and shadows */
+    --border-subtle: rgba(139, 69, 19, 0.2);
+    --shadow-soft: 0 4px 20px rgba(139, 69, 19, 0.15);
+    --shadow-elevated: 0 8px 30px rgba(47, 79, 47, 0.2);
+}
 
 /* Reset and Base Styles */
 * {
@@ -20,14 +55,38 @@ html {
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
     line-height: 1.6;
-    color: #2d4a3e;
-    background: linear-gradient(135deg, #5a7c65 0%, #8fbc8f 50%, #a8d3a8 100%);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    background-attachment: fixed;
     min-height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     text-align: center;
     margin: 0 auto;
     display: block;
+    position: relative;
+}
+
+/* Subtle cottagecore pattern overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.03) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(107, 142, 90, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px, 40px 40px;
+    pointer-events: none;
+    z-index: -1;
+    animation: subtleFloat 20s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+    0%, 100% { opacity: 0.7; transform: translateY(0px); }
+    50% { opacity: 1; transform: translateY(-5px); }
 }
 
 /* Ensure ALL content is centered */
@@ -103,56 +162,116 @@ body::before {
 }
 
 /* =================================
-   NAVIGATION
+   NAVIGATION - Cottagecore Deer Theme
    ================================= */
 
 header {
-    background: rgba(139, 115, 85, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, var(--deer-brown) 0%, var(--primary-brown) 50%, var(--rustic-orange) 100%);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 25px rgba(139, 69, 19, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
+    border-bottom: 2px solid var(--border-subtle);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
+    position: relative;
+}
+
+/* Add decorative antler-like elements */
+nav::before, nav::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background: var(--antique-white);
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+nav::before {
+    left: 10%;
+    transform: translateY(-50%) rotate(15deg);
+}
+
+nav::after {
+    right: 10%;
+    transform: translateY(-50%) rotate(-15deg);
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: #f5deb3;
+    color: var(--antique-white);
     text-decoration: none;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: rgba(250, 240, 230, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.logo:hover {
+    color: var(--warm-cream);
+    transform: translateY(-2px);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    background: rgba(250, 240, 230, 0.2);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-links a {
-    color: #f5deb3;
+    color: var(--antique-white);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    background: rgba(250, 240, 230, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(250, 240, 230, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-links a:hover::before {
+    left: 100%;
 }
 
 .nav-links a:hover {
-    background: rgba(139, 69, 19, 0.3);
-    transform: translateY(-2px);
+    background: var(--sage-green);
+    transform: translateY(-3px);
+    border-color: var(--border-subtle);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
+    color: var(--warm-cream);
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu - Cottagecore Style */
 .dropdown {
     position: relative;
 }
@@ -161,40 +280,74 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background: rgba(139, 115, 85, 0.98);
-    backdrop-filter: blur(10px);
-    min-width: 200px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mushroom-beige) 0%, var(--warm-cream) 100%);
+    backdrop-filter: blur(15px);
+    min-width: 220px;
+    box-shadow: 0 10px 35px rgba(139, 69, 19, 0.3);
+    border-radius: 15px;
+    border: 2px solid var(--border-subtle);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transform: translateY(-15px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 1001;
     list-style: none;
-    padding: 0.5rem 0;
+    padding: 0.8rem 0;
+    overflow: hidden;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage-green), var(--accent-orange), var(--sage-green));
 }
 
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .dropdown-menu li {
     padding: 0;
+    position: relative;
 }
 
 .dropdown-menu a {
     display: block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     border-radius: 0;
     margin: 0;
+    color: var(--text-primary);
+    background: transparent;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a::before {
+    content: '🌿';
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu a:hover {
-    background: rgba(139, 69, 19, 0.3);
-    transform: none;
+    background: var(--sage-green);
+    color: var(--warm-cream);
+    transform: translateX(10px);
+    padding-left: 2.5rem;
+}
+
+.dropdown-menu a:hover::before {
+    opacity: 1;
 }
 
 /* Mobile Menu */
@@ -284,19 +437,19 @@ nav {
 }
 
 .character-card {
-    background: rgba(245, 222, 179, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--antique-white) 50%, var(--mushroom-beige) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-elevated);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
     color: inherit;
-    border: 2px solid rgba(139, 69, 19, 0.2);
+    border: 3px solid var(--border-subtle);
     position: relative;
     text-align: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 380px;
     overflow: hidden;
 }
 
@@ -307,47 +460,71 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(139, 69, 19, 0.03) 50%, transparent 70%);
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(107, 142, 90, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 30%, rgba(160, 82, 45, 0.03) 50%, transparent 70%);
     pointer-events: none;
 }
 
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
-    opacity: 0.8;
+.character-card::after {
+    content: '🌸';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.2rem;
+    opacity: 0.3;
     transition: all 0.3s ease;
 }
 
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    opacity: 0.9;
+    transition: all 0.4s ease;
+    filter: drop-shadow(2px 2px 8px rgba(139, 69, 19, 0.2));
+}
+
 .character-card:hover .card-icon {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.25) rotate(8deg);
     opacity: 1;
+    filter: drop-shadow(3px 3px 12px rgba(139, 69, 19, 0.3));
+}
+
+.character-card:hover::after {
+    opacity: 0.8;
+    transform: rotate(15deg) scale(1.2);
 }
 
 .card-desc {
-    color: #5a7c65;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    opacity: 0.8;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+    opacity: 0.9;
     font-style: italic;
+    line-height: 1.4;
 }
 
 .character-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    border-color: rgba(139, 69, 19, 0.5);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 60px rgba(139, 69, 19, 0.25);
+    border-color: var(--sage-green);
+    background: linear-gradient(135deg, var(--antique-white) 0%, var(--warm-cream) 50%, var(--sage-green) 100%);
 }
 
 .character-card h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: #8b4513;
+    color: var(--text-accent);
     font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 3px rgba(139, 69, 19, 0.1);
 }
 
 .character-card p {
-    color: #2d4a3e;
+    color: var(--text-primary);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 /* =================================
@@ -618,8 +795,10 @@ input:checked + .slider:before {
 }
 
 .modal-content img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 95vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -835,6 +1014,79 @@ input:checked + .slider:before {
 .notification.error { background: rgba(220, 53, 69, 0.9); }
 .notification.warning { background: rgba(255, 193, 7, 0.9); color: #333; }
 .notification.info { background: rgba(23, 162, 184, 0.9); }
+
+/* Easter egg popup styles */
+.easter-egg-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--bg-card), var(--accent-green));
+    border: 2px solid var(--accent-green);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow-elevated);
+    z-index: 10001;
+    max-width: 400px;
+    width: 90%;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+.popup-header {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.popup-body {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.popup-body .collab-code {
+    background: var(--background-darker);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    word-break: break-all;
+    color: var(--accent-green);
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    margin: 0 5px;
+    background: var(--accent-green);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
 
 /* =================================
    FOOTER

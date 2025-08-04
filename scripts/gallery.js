@@ -97,6 +97,32 @@ class GalleryManager {
         
         // Setup mobile menu
         this.setupMobileMenu();
+
+        // Initialize NSFW toggle states
+        this.initializeNSFWToggles();
+    }
+
+    initializeNSFWToggles() {
+        // Get all gallery containers and initialize their NSFW toggle states
+        const galleryContainers = document.querySelectorAll('[id$="-gallery-container"]');
+        
+        galleryContainers.forEach(container => {
+            const characterName = container.id.replace('-gallery-container', '');
+            const nsfwToggle = container.querySelector('.nsfw-toggle-input');
+            
+            if (nsfwToggle) {
+                // Get stored blur state (default to true - blurred)
+                const isBlurred = localStorage.getItem(`${characterName}-nsfw-blurred`) !== 'false';
+                
+                // Set toggle state (checked = not blurred)
+                nsfwToggle.checked = !isBlurred;
+                
+                // Apply the blur state
+                this.toggleNSFWBlur(characterName, isBlurred);
+                
+                console.log(`Initialized NSFW toggle for ${characterName}: blurred=${isBlurred}, checked=${nsfwToggle.checked}`);
+            }
+        });
     }
 
     setupDropdowns() {
@@ -283,6 +309,12 @@ class GalleryManager {
                 item.classList.remove('blurred');
             }
         });
+
+        // Update toggle state to match current blur state
+        const nsfwToggle = document.querySelector(`#${characterName}-gallery-container .nsfw-toggle-input`);
+        if (nsfwToggle) {
+            nsfwToggle.checked = !shouldBlur;
+        }
     }
 
     openModal(imageSrc, imageAlt) {
