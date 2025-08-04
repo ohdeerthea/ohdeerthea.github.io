@@ -223,13 +223,24 @@ class GalleryManager {
             }
             
             // Create image grid
-            const imageItems = images.map((imageName, index) => {
-                const imagePath = `./images/${characterName}/${galleryType}/${imageName}`;
+            const imageItems = images.map((imageData, index) => {
+                // Handle both old format (string) and new format (object)
+                let imagePath, imageTitle;
+                if (typeof imageData === 'string') {
+                    // Old format: just filename
+                    imagePath = `./images/${characterName}/${galleryType}/${imageData}`;
+                    imageTitle = `${characterName} ${galleryType} ${index + 1}`;
+                } else {
+                    // New format: object with src, title, desc
+                    imagePath = imageData.src;
+                    imageTitle = imageData.title || `${characterName} ${galleryType} ${index + 1}`;
+                }
+                
                 const nsfwClass = galleryType === 'nsfw' ? 'nsfw' : '';
                 return `
                     <div class="gallery-item ${nsfwClass}" data-index="${index}">
                         <img src="${imagePath}" 
-                             alt="${characterName} ${galleryType} ${index + 1}" 
+                             alt="${imageTitle}" 
                              class="gallery-image"
                              loading="lazy"
                              onerror="this.parentElement.style.display='none'">
