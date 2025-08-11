@@ -13,6 +13,16 @@
             ],
     "ref":  [
                 {
+                    "title":  "Lorelei Mondschein Ref Nsfw",
+                    "desc":  "Lorelei Mondschein Ref Nsfw artwork",
+                    "src":  "./images/misc/ref/Lorelei Mondschein Ref NSFW.png"
+                },
+                {
+                    "title":  "Lorelei Mondschein Ref Sfw",
+                    "desc":  "Lorelei Mondschein Ref Sfw artwork",
+                    "src":  "./images/misc/ref/Lorelei Mondschein Ref SFW.png"
+                },
+                {
                     "title":  "Lyra Dual Ref",
                     "desc":  "Lyra Dual Ref artwork",
                     "src":  "./images/misc/ref/Lyra Dual Ref.png"
