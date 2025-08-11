@@ -232,20 +232,27 @@ nav::after {
     list-style: none;
     align-items: center;
     gap: 1.5rem;
+    justify-content: flex-end;
+    background: rgba(250, 240, 230, 0.08);
+    border-radius: 12px;
+    padding: 0.2rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.07);
 }
 
 .nav-links a {
     color: var(--antique-white);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     transition: all 0.3s ease;
-    padding: 0.8rem 1.2rem;
+    padding: 0.7rem 1.3rem;
     border-radius: 10px;
-    background: rgba(250, 240, 230, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid transparent;
+    background: rgba(250, 240, 230, 0.13);
+    border: 1.5px solid transparent;
     position: relative;
     overflow: hidden;
+    font-size: 1.1rem;
+    margin: 0 0.1rem;
 }
 
 .nav-links a::before {
@@ -265,90 +272,12 @@ nav::after {
 
 .nav-links a:hover {
     background: var(--sage-green);
-    transform: translateY(-3px);
-    border-color: var(--border-subtle);
-    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
     color: var(--warm-cream);
+    border-color: var(--accent-green);
+    box-shadow: 0 4px 16px rgba(139, 69, 19, 0.13);
+    transform: translateY(-2px) scale(1.04);
 }
 
-/* Dropdown Menu - Cottagecore Style */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: linear-gradient(135deg, var(--mushroom-beige) 0%, var(--warm-cream) 100%);
-    backdrop-filter: blur(15px);
-    min-width: 220px;
-    box-shadow: 0 10px 35px rgba(139, 69, 19, 0.3);
-    border-radius: 15px;
-    border: 2px solid var(--border-subtle);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-15px) scale(0.95);
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 1001;
-    list-style: none;
-    padding: 0.8rem 0;
-    overflow: hidden;
-}
-
-.dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--sage-green), var(--accent-orange), var(--sage-green));
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-.dropdown-menu li {
-    padding: 0;
-    position: relative;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 0.9rem 1.8rem;
-    border-radius: 0;
-    margin: 0;
-    color: var(--text-primary);
-    background: transparent;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.dropdown-menu a::before {
-    content: '🌿';
-    position: absolute;
-    left: 0.8rem;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-    background: var(--sage-green);
-    color: var(--warm-cream);
-    transform: translateX(10px);
-    padding-left: 2.5rem;
-}
-
-.dropdown-menu a:hover::before {
-    opacity: 1;
-}
 
 /* Mobile Menu */
 .mobile-menu {
